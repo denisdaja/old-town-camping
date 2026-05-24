@@ -56,9 +56,7 @@ export default function Footer() {
           {/* Social links */}
           <div style={{ display: "flex", gap: 12 }}>
             {[
-              { label: "Facebook", href: "https://facebook.com", icon: "f" },
-              { label: "Instagram", href: "https://instagram.com", icon: "in" },
-              { label: "WhatsApp", href: "https://wa.me/355000000000", icon: "wa" },
+              { label: "WhatsApp", href: "https://wa.me/355684211666", icon: "wa" },
             ].map((s) => (
               <a
                 key={s.label}
@@ -135,11 +133,11 @@ export default function Footer() {
           <p style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", lineHeight: 1.9 }}>
             Berat, Albania<br />
             Near Mangalem Quarter<br />
-            <a href="tel:+355000000000" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>+355 00 000 0000</a><br />
-            <a href="mailto:info@oldtowncamping.al" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>info@oldtowncamping.al</a>
+            <a href="tel:+355684211666" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>+355 68 421 1666</a><br />
+            <a href="mailto:oldtowncampingberat@gmail.com" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>oldtowncampingberat@gmail.com</a>
           </p>
           <a
-            href="https://wa.me/355000000000"
+            href="https://wa.me/355684211666"
             target="_blank"
             rel="noopener noreferrer"
             className="footer-whatsapp"
