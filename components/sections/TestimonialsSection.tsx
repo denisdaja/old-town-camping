@@ -107,19 +107,25 @@ export default function TestimonialsSection() {
               key={i}
               onClick={() => setActive(i)}
               style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: "18px 6px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              aria-label={`Review ${i + 1}`}
+            >
+              <span style={{
+                display: "block",
                 width: i === active ? 28 : 8,
                 height: 8,
                 borderRadius: 4,
                 background: i === active ? "var(--sunset-light)" : "rgba(255,255,255,0.2)",
-                border: "none",
-                cursor: "pointer",
                 transition: "all 0.3s ease",
-                padding: "18px 10px",
-                boxSizing: "content-box",
-                padding: 0,
-              }}
-              aria-label={`Review ${i + 1}`}
-            />
+              }} />
+            </button>
           ))}
         </div>
       </div>
