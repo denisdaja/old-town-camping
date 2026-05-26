@@ -139,10 +139,11 @@ export default function ContactSection() {
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
                   <div>
-                    <label style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--charcoal-light)", display: "block", marginBottom: 8 }}>
+                    <label htmlFor="name" style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--charcoal-light)", display: "block", marginBottom: 8 }}>
                       Full Name *
                     </label>
                     <input
+                      id="name"
                       name="name"
                       required
                       value={form.name}
@@ -154,10 +155,11 @@ export default function ContactSection() {
                     />
                   </div>
                   <div>
-                    <label style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--charcoal-light)", display: "block", marginBottom: 8 }}>
+                    <label htmlFor="email" style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--charcoal-light)", display: "block", marginBottom: 8 }}>
                       Email *
                     </label>
                     <input
+                      id="email"
                       name="email"
                       type="email"
                       required
@@ -173,10 +175,11 @@ export default function ContactSection() {
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
                   <div>
-                    <label style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--charcoal-light)", display: "block", marginBottom: 8 }}>
+                    <label htmlFor="date" style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--charcoal-light)", display: "block", marginBottom: 8 }}>
                       Arrival Date
                     </label>
                     <input
+                      id="date"
                       name="date"
                       type="date"
                       value={form.date}
@@ -187,10 +190,11 @@ export default function ContactSection() {
                     />
                   </div>
                   <div>
-                    <label style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--charcoal-light)", display: "block", marginBottom: 8 }}>
+                    <label htmlFor="guests" style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--charcoal-light)", display: "block", marginBottom: 8 }}>
                       No. of Guests
                     </label>
                     <input
+                      id="guests"
                       name="guests"
                       type="number"
                       min={1}
@@ -206,10 +210,11 @@ export default function ContactSection() {
                 </div>
 
                 <div style={{ marginBottom: 28 }}>
-                  <label style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--charcoal-light)", display: "block", marginBottom: 8 }}>
+                  <label htmlFor="message" style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--charcoal-light)", display: "block", marginBottom: 8 }}>
                     Message
                   </label>
                   <textarea
+                    id="message"
                     name="message"
                     rows={4}
                     value={form.message}

@@ -114,6 +114,8 @@ export default function TestimonialsSection() {
                 border: "none",
                 cursor: "pointer",
                 transition: "all 0.3s ease",
+                padding: "18px 10px",
+                boxSizing: "content-box",
                 padding: 0,
               }}
               aria-label={`Review ${i + 1}`}
