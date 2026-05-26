@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans, Cinzel } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css" with { type: "css" };
 
 const cormorant = Cormorant_Garamond({
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${cormorant.variable} ${dmSans.variable} ${cinzel.variable}`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
