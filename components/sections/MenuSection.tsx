@@ -38,6 +38,13 @@ const dishes = [
     description: "Hand-picked seasonal fruits from the orchards surrounding Berat — peaches, figs, grapes and watermelon. A sweet and pure taste of Albanian nature.",
     image: "/images/fruits.jpeg",
   },
+  {
+    id: 6,
+    name: "Sour Cream",
+    subtitle: "Kos Shtëpiak",
+    description: "Thick and creamy homemade sour cream prepared with fresh local milk — served as a side with traditional dishes or enjoyed on its own.",
+    image: "/images/sour-cream.jpeg",
+  },
 ];
 
 export default function MenuSection() {
