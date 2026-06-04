@@ -4,14 +4,34 @@ import { useState } from "react";
 export default function ContactSection() {
   const [form, setForm] = useState({ name: "", email: "", date: "", guests: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    setSending(true);
+    setError(false);
+    try {
+      const res = await fetch("https://formspree.io/f/xjgdvzpb", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setSent(true);
+        setForm({ name: "", email: "", date: "", guests: "", message: "" });
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   const inputStyle: React.CSSProperties = {
@@ -228,10 +248,11 @@ export default function ContactSection() {
 
                 <button
                   type="submit"
+                  disabled={sending}
                   style={{
                     width: "100%",
                     padding: "16px",
-                    background: "var(--charcoal)",
+                    background: sending ? "var(--charcoal-light)" : "var(--charcoal)",
                     color: "white",
                     fontFamily: "var(--font-body)",
                     fontSize: 12,
@@ -239,14 +260,20 @@ export default function ContactSection() {
                     letterSpacing: "0.15em",
                     textTransform: "uppercase",
                     border: "none",
-                    cursor: "pointer",
+                    cursor: sending ? "not-allowed" : "pointer",
                     transition: "background 0.25s",
                   }}
-                  onMouseEnter={(e) => ((e.target as HTMLButtonElement).style.background = "var(--sunset)")}
-                  onMouseLeave={(e) => ((e.target as HTMLButtonElement).style.background = "var(--charcoal)")}
+                  onMouseEnter={(e) => { if (!sending) (e.target as HTMLButtonElement).style.background = "var(--sunset)"; }}
+                  onMouseLeave={(e) => { if (!sending) (e.target as HTMLButtonElement).style.background = "var(--charcoal)"; }}
                 >
-                  Send Enquiry →
+                  {sending ? "Sending..." : "Send Enquiry →"}
                 </button>
+
+                {error && (
+                  <p style={{ fontSize: 12, color: "#e53e3e", textAlign: "center", marginTop: 12 }}>
+                    Something went wrong. Please try again or contact us via WhatsApp.
+                  </p>
+                )}
 
                 <p style={{ fontSize: 11, color: "var(--charcoal-light)", textAlign: "center", marginTop: 16, opacity: 0.7 }}>
                   We respond within 24 hours. No payment required to enquire.
