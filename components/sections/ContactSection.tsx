@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 export default function ContactSection() {
-  const [form, setForm] = useState({ name: "", email: "", date: "", guests: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", date: "", guests: "", phone: "", message: "" });
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);
@@ -23,7 +23,7 @@ export default function ContactSection() {
       });
       if (res.ok) {
         setSent(true);
-        setForm({ name: "", email: "", date: "", guests: "", message: "" });
+        setForm({ name: "", email: "", date: "", guests: "", phone: "", message: "" });
       } else {
         setError(true);
       }
@@ -227,6 +227,23 @@ export default function ContactSection() {
                       onBlur={(e) => ((e.target as HTMLInputElement).style.borderColor = "var(--stone)")}
                     />
                   </div>
+                </div>
+
+                <div style={{ marginBottom: 28 }}>
+                  <label htmlFor="phone" style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--charcoal-light)", display: "block", marginBottom: 8 }}>
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={form.phone}
+                    onChange={handleChange}
+                    placeholder="+1 234 567 8900"
+                    style={inputStyle}
+                    onFocus={(e) => ((e.target as HTMLInputElement).style.borderColor = "var(--sunset)")}
+                    onBlur={(e) => ((e.target as HTMLInputElement).style.borderColor = "var(--stone)")}
+                  />
                 </div>
 
                 <div style={{ marginBottom: 28 }}>
